@@ -12,7 +12,6 @@ arg_enum! {
 
 fn url_parse_default_base(url: &str) -> Result<Url, ParseError> {
     match Url::parse(url) {
-        Ok(url) => Ok(url),
         Err(ParseError::RelativeUrlWithoutBase) => Url::parse(&format!("https://{}", url)),
         result => result,
     }
